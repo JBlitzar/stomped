@@ -31,9 +31,9 @@ var htmlCode = `<!doctype html>
 
 
 
-<link rel="stylesheet" href="https://stomped-script.jblitzar.repl.co/style.css">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/main.css">
 <script src="https://raw.githubusercontent.com/antimatter15/whammy/master/whammy.js"></script>
-<script src="https://stomped-script.jblitzar.repl.co/capture.js"></script>
+<script src="https://raw.githubusercontent.com/JBlitzar/stomped/main/capture.js"></script>
 
 
 
@@ -61,7 +61,7 @@ var htmlCode = `<!doctype html>
     
 
 
-<link rel="stylesheet" href="https://stomped-script.jblitzar.repl.co/main.css"/>
+<link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/main.css"/>
     
 
 
@@ -132,7 +132,7 @@ var htmlCode = `<!doctype html>
 
 
 
-<script type="text/javascript" src="https://stomped-script.jblitzar.repl.co/bundlemod_client.js"></script></body>
+<script type="text/javascript" src="https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js"></script></body>
 </html>`; document.open("text/html", "replace"); document.write(htmlCode); document.close();
 (function() {
   if ('serviceWorker' in navigator) {
