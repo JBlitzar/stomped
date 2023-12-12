@@ -37,7 +37,7 @@ setTimeout(() => {
     
 
 
-<link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/main.css"/>
+<link rel="stylesheet" href="https://stomped.io/assets/main.css"/>
     
 
 
