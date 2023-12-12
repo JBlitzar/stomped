@@ -3,10 +3,8 @@
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/JBlitzar/stomped)](https://github.com/JBlitzar/stomped/commits/main)
 
 
-Various scripts related to the game stomped.io
-
-Migrated from replit due to hosting changes
-
+Various scripts related to the game stomped.io\
+Migrated from replit due to hosting changes\
 Currently broken
 
 
