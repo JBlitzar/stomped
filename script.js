@@ -152,11 +152,12 @@ function apH(url) {
     document.head.innerHTML = headCode;
     document.body.innerHTML = bodyCode;
     setTimeout(()=>{
+	    console.log(document.body.innerHTML)
     apH("https://raw.githubusercontent.com/antimatter15/whammy/master/whammy.js")
     apH("https://raw.githubusercontent.com/JBlitzar/stomped/main/capture.js")
     apH("https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js")
     apB("https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js")
-    },1000)
+    },2000)
     window.boundsMult = 1; //allow camera out of bounds (doesnt work, set to 1 for default)
     window.runTimeout = function(fn, delay) {
         if (!window.spectate) {
