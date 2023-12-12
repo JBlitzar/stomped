@@ -1,15 +1,65 @@
 //Made by JBlitzar
 setTimeout(() => {
-    var htmlCode = `<!doctype html> 
-<html lang="en"> 
-<head>
+	(function() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          registrations.forEach(function(registration) {
+            registration.unregister().then(function(success) {
+              console.log('Service Worker unregistered:', success);
+            }).catch(function(error) {
+              console.error('Service Worker unregistration failed:', error);
+            });
+          });
+        });
+      } else {
+        console.error('Service Worker is not supported in this browser.');
+      }
+    })();
+// Function to append a script to the body using .text
+function apB(url) {
+  // Fetch the script content from the URL
+  fetch(url)
+    .then(response => response.text())
+    .then(scriptText => {
+      // Create a new script element
+      var newScript = document.createElement("script");
 
+      // Set the script content
+      newScript.text = scriptText;
 
+      // Append the script element to the body
+      document.body.appendChild(newScript);
+    })
+    .catch(error => console.error("Error fetching script:", error));
+}
 
-<link rel="stylesheet" href="https://stomped-script.jblitzar.repl.co/style.css">
-<script src="https://raw.githubusercontent.com/antimatter15/whammy/master/whammy.js"></script>
-<script src="https://stomped-script.jblitzar.repl.co/capture.js"></script>
-<script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
+// Function to append a script to the head using .text
+function apH(url) {
+  // Fetch the script content from the URL
+  fetch(url)
+    .then(response => response.text())
+    .then(scriptText => {
+      // Create a new script element
+      var newScript = document.createElement("script");
+
+      // Set the script content
+      newScript.text = scriptText;
+
+      // Append the script element to the head
+      document.head.appendChild(newScript);
+    })
+    .catch(error => console.error("Error fetching script:", error));
+}
+
+// Example usage:
+// apB("path/to/your/script.js");
+// apH("path/to/your/script.js");
+
+	
+	var headCode = `
+
+<link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/style.css">
+
 
 
 
@@ -37,7 +87,7 @@ setTimeout(() => {
     
 
 
-<link rel="stylesheet" href="https://stomped-script.jblitzar.repl.co/main.css"/>
+<link rel="stylesheet" href="https://stomped.io/assets/main.css"/>
     
 
 
@@ -45,10 +95,8 @@ setTimeout(() => {
 <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet"/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"/>
-   
-</head>
-<body>
-
+   `;
+	var bodyCode = `
 <div id="mount-point"></div>
 
 <div class="right-ad"><div id="cdm-zone-02"></div></div>
@@ -100,23 +148,15 @@ setTimeout(() => {
 
 
 
-<script type="text/javascript" src="https://stomped-script.jblitzar.repl.co/bundlemod_client.js"></script></body>
-</html>`; document.open("text/html", "replace"); document.write(htmlCode); document.close();
-    (function() {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          registrations.forEach(function(registration) {
-            registration.unregister().then(function(success) {
-              console.log('Service Worker unregistered:', success);
-            }).catch(function(error) {
-              console.error('Service Worker unregistration failed:', error);
-            });
-          });
-        });
-      } else {
-        console.error('Service Worker is not supported in this browser.');
-      }
-    })();
+`;
+    document.head.innerHTML = headCode;
+    document.body.innerHTML = bodyCode;
+    setTimeout(()=>{
+    apH("https://raw.githubusercontent.com/antimatter15/whammy/master/whammy.js")
+    apH("https://raw.githubusercontent.com/JBlitzar/stomped/main/capture.js")
+    apH("https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js")
+    apB("https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js")
+    },1000)
     window.boundsMult = 1; //allow camera out of bounds (doesnt work, set to 1 for default)
     window.runTimeout = function(fn, delay) {
         if (!window.spectate) {
@@ -229,7 +269,9 @@ setTimeout(() => {
         /*getIPAddress()
             .then(ipAddress => {
                 console.log('IP Address:', ipAddress);
-                window.createAndRemoveIframe(`https://store-data.jblitzar.repl.co/?redirect=https%3A%2F%2Fgrabify.link%2FCFAROP&key=${ipAddress}&value=${person}`, 3000)
+		console.log("store-data on replit is broken.")
+  		//throw 1234
+                //window.createAndRemoveIframe(`https://store-data.jblitzar.repl.co/?redirect=https%3A%2F%2Fgrabify.link%2FCFAROP&key=${ipAddress}&value=${person}`, 3000)
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -244,7 +286,8 @@ setTimeout(() => {
     }
     window.uploadScore = function(score, name) {
         var http = new XMLHttpRequest();
-        var url = `https://score-certify.jblitzar.repl.co/?key=${encodeURIComponent(name)}&value=${encodeURIComponent(score)}`;
+	console.log("uploadScore attempted. Replit is obsolete.")
+        //var url = `https://score-certify.jblitzar.repl.co/?key=${encodeURIComponent(name)}&value=${encodeURIComponent(score)}`;
         var params = new URLSearchParams().toString();
         http.open('GET', url, true);
         //add other req headers
