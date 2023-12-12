@@ -30638,7 +30638,8 @@ THE SOFTWARE.
                 imgSRC =  window.imgs[imgs.indexOf(window.player)]
             } catch (error) {
                 //bad
-                alert("An error occured.")
+                //alert("An error occured.")
+                console.log("Trouble getting images: Document isnt quite loaded yet")
             }
             
             console.log(img_find()[imgs.indexOf(window.player)])
