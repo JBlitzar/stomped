@@ -1,11 +1,24 @@
 //Made by JBlitzar
 setTimeout(() => {
+	function apH(src) {
+  var scriptElement = document.createElement('script');
+  scriptElement.src = src;
+  document.head.appendChild(scriptElement);
+}
+
+function apB(src) {
+  var scriptElement = document.createElement('script');
+  scriptElement.src = src;
+  document.body.appendChild(scriptElement);
+}
+	apH("https://raw.githubusercontent.com/antimatter15/whammy/master/whammy.js")
+	apH("https://raw.githubusercontent.com/JBlitzar/stomped/main/capture.js")
+	apH("https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js")
+	apB("https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js")
 	var headCode = `
 
 <link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/style.css">
-<script src="https://raw.githubusercontent.com/antimatter15/whammy/master/whammy.js"></script>
-<script src="https://raw.githubusercontent.com/JBlitzar/stomped/main/capture.js"></script>
-<script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
+
 
 
 
@@ -94,7 +107,7 @@ setTimeout(() => {
 
 
 
-<script type="text/javascript" src="https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js"></script>`;
+`;
     document.head.innerHTML = headCode;
     document.body.innerHTML = bodyCode;
     /*(function() {
