@@ -1,5 +1,6 @@
 //command f to these places: `coords`, `alive time`, `fady`, `dumpNLog`, `e.socket.on("bcast"`, `hunt mode`, `sprite spawn`, `smashspeed`
 //window.dbg
+//unregDeed
 !function(t) {
     function e(n) {
         if (i[n])
@@ -29179,8 +29180,9 @@ THE SOFTWARE.
           , r = !1;
         e.UpUp = {
             start: function(t) {
-                this.addSettings(t),
-                i.register(n["service-worker-url"], {
+                this.addSettings(t)
+                console.log("Service Worker Registration Blocked at line 29183") //Codepoint: unregDeed
+                /*i.register(n["service-worker-url"], {
                     scope: "./"
                 }).then(function(t) {
                     r && console.log("Service worker registration successful with scope: %c" + t.scope, "font-weight: bold; color: #00f;"),
@@ -29190,7 +29192,7 @@ THE SOFTWARE.
                     })
                 }).catch(function(t) {
                     r && console.log("Service worker registration failed: %c" + t, "font-weight: bold; color: #00f;")
-                })
+                })*/
             },
             addSettings: function(e) {
                 e = e || {},
