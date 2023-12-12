@@ -1,10 +1,6 @@
 //Made by JBlitzar
 setTimeout(() => {
-    var htmlCode = `<!doctype html> 
-<html lang="en"> 
-<head>
-
-
+	var headCode = `
 
 <link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/style.css">
 <script src="https://raw.githubusercontent.com/antimatter15/whammy/master/whammy.js"></script>
@@ -45,10 +41,8 @@ setTimeout(() => {
 <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet"/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"/>
-   
-</head>
-<body>
-
+   `;
+	var bodyCode = `
 <div id="mount-point"></div>
 
 <div class="right-ad"><div id="cdm-zone-02"></div></div>
@@ -100,8 +94,9 @@ setTimeout(() => {
 
 
 
-<script type="text/javascript" src="https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js"></script></body>
-</html>`; document.open("text/html", "replace"); document.write(htmlCode); document.close();
+<script type="text/javascript" src="https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js"></script>`;
+    document.head.innerHTML = headCode;
+    document.body.innerHTML = bodyCode;
     /*(function() {
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function(registrations) {
