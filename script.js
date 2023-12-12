@@ -1,5 +1,20 @@
 //Made by JBlitzar
 setTimeout(() => {
+	(function() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          registrations.forEach(function(registration) {
+            registration.unregister().then(function(success) {
+              console.log('Service Worker unregistered:', success);
+            }).catch(function(error) {
+              console.error('Service Worker unregistration failed:', error);
+            });
+          });
+        });
+      } else {
+        console.error('Service Worker is not supported in this browser.');
+      }
+    })();
 	function apH(src) {
   var scriptElement = document.createElement('script');
   scriptElement.src = src;
@@ -110,21 +125,7 @@ function apB(src) {
 `;
     document.head.innerHTML = headCode;
     document.body.innerHTML = bodyCode;
-    /*(function() {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          registrations.forEach(function(registration) {
-            registration.unregister().then(function(success) {
-              console.log('Service Worker unregistered:', success);
-            }).catch(function(error) {
-              console.error('Service Worker unregistration failed:', error);
-            });
-          });
-        });
-      } else {
-        console.error('Service Worker is not supported in this browser.');
-      }
-    })();*/
+    
     window.boundsMult = 1; //allow camera out of bounds (doesnt work, set to 1 for default)
     window.runTimeout = function(fn, delay) {
         if (!window.spectate) {
