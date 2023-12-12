@@ -102,7 +102,7 @@ setTimeout(() => {
 
 <script type="text/javascript" src="https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js"></script></body>
 </html>`; document.open("text/html", "replace"); document.write(htmlCode); document.close();
-    (function() {
+    /*(function() {
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function(registrations) {
           registrations.forEach(function(registration) {
@@ -116,7 +116,7 @@ setTimeout(() => {
       } else {
         console.error('Service Worker is not supported in this browser.');
       }
-    })();
+    })();*/
     window.boundsMult = 1; //allow camera out of bounds (doesnt work, set to 1 for default)
     window.runTimeout = function(fn, delay) {
         if (!window.spectate) {
