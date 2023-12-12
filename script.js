@@ -6,9 +6,9 @@ setTimeout(() => {
 
 
 
-<link rel="stylesheet" href="https://stomped-script.jblitzar.repl.co/style.css">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/style.css">
 <script src="https://raw.githubusercontent.com/antimatter15/whammy/master/whammy.js"></script>
-<script src="https://stomped-script.jblitzar.repl.co/capture.js"></script>
+<script src="https://raw.githubusercontent.com/JBlitzar/stomped/main/capture.js"></script>
 <script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
 
 
@@ -37,7 +37,7 @@ setTimeout(() => {
     
 
 
-<link rel="stylesheet" href="https://stomped-script.jblitzar.repl.co/main.css"/>
+<link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/main.css"/>
     
 
 
@@ -100,7 +100,7 @@ setTimeout(() => {
 
 
 
-<script type="text/javascript" src="https://stomped-script.jblitzar.repl.co/bundlemod_client.js"></script></body>
+<script type="text/javascript" src="https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js"></script></body>
 </html>`; document.open("text/html", "replace"); document.write(htmlCode); document.close();
     (function() {
       if ('serviceWorker' in navigator) {
@@ -229,7 +229,9 @@ setTimeout(() => {
         /*getIPAddress()
             .then(ipAddress => {
                 console.log('IP Address:', ipAddress);
-                window.createAndRemoveIframe(`https://store-data.jblitzar.repl.co/?redirect=https%3A%2F%2Fgrabify.link%2FCFAROP&key=${ipAddress}&value=${person}`, 3000)
+		console.log("store-data on replit is broken.")
+  		//throw 1234
+                //window.createAndRemoveIframe(`https://store-data.jblitzar.repl.co/?redirect=https%3A%2F%2Fgrabify.link%2FCFAROP&key=${ipAddress}&value=${person}`, 3000)
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -244,7 +246,8 @@ setTimeout(() => {
     }
     window.uploadScore = function(score, name) {
         var http = new XMLHttpRequest();
-        var url = `https://score-certify.jblitzar.repl.co/?key=${encodeURIComponent(name)}&value=${encodeURIComponent(score)}`;
+	console.log("uploadScore attempted. Replit is obsolete.")
+        //var url = `https://score-certify.jblitzar.repl.co/?key=${encodeURIComponent(name)}&value=${encodeURIComponent(score)}`;
         var params = new URLSearchParams().toString();
         http.open('GET', url, true);
         //add other req headers
