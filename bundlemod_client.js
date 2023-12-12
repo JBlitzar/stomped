@@ -82371,9 +82371,9 @@ THE SOFTWARE.
 ]);
 //# sourceMappingURL=maps/bundle.a2a94c75ba56a96740c8.js.a2a94c75ba56a96740c8.map
 if(window.dumpNLog){
-    alert("Stomped client, made by Some Kid: all hidden skins, hunt mode, bars. Last updated this message. on Nov 16, 2023. Rebuild 2 of today")
+    alert("Stomped client, made by Some Kid: all hidden skins, hunt mode, bars. Last updated this message on Dec 12, 2023. Rebuild 4 of today. Hosted on github.")
 }
-
+console.log(document.body.innerHTML)
 document.getElementById("opts").onclick = function(){
         var hMode  = confirm("enable hunt mode? ok for yes")
         window.hMode = hMode
