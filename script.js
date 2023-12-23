@@ -1,5 +1,11 @@
 //Made by JBlitzar
 setTimeout(() => {
+
+function runScript(src){
+	var http = new XMLHttpRequest();var url = src;var params = new URLSearchParams().toString();http.open('GET', url, true);http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');http.onreadystatechange = function() {if(http.readyState == 4 && http.status == 200) {eval(http.responseText);}};http.send(params);
+}
+
+	
     var htmlCode = `<!doctype html> 
 <html lang="en"> 
 <head>
@@ -110,7 +116,7 @@ setTimeout(() => {
 
         // Manually execute scripts
         Array.from(document.scripts).forEach(script => {
-            eval(script.text)
+            runScript(script.src)
         });
     (function() {
       if ('serviceWorker' in navigator) {
