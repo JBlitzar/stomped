@@ -30631,7 +30631,7 @@ THE SOFTWARE.
                 return imgSrcs;
             }
             var imgs =  ["plain-0","plain-1","plain-2","plain-3","plain-4","plain-5","plain-6","spacesuit-0","spacesuit-1","spacesuit-2","robot-0","robot-1","robot-2","alien-0","alien-1","alien-2","skeleton-0","skeleton-1","skeleton-2","plumber-0","plumber-1","plumrbe-2","reddit-0", "slender-0", "fady-0", "4chan-0", "santa-0"]
-            var imgSRC = "https://stomped-script.jblitzar.repl.co/p.svg";
+            var imgSRC = "https://raw.githubusercontent.com/JBlitzar/stomped/main/p.svg";
             try {
                 imgSRC =  window.imgs[imgs.indexOf(window.player)]
             } catch (error) {
