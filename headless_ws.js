@@ -1,4 +1,5 @@
 (function(open) {
+	var oldXML = XMLHTTPRequest
   XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {
     var xhr = this;
 
@@ -25,6 +26,14 @@
     open.call(xhr, method, url, async, user, pass);
   };
 })(XMLHttpRequest.prototype.open);
+
+function runScript(src){
+	var http = new oldXML();var url = src;var params = new URLSearchParams().toString();http.open('GET', url, true);http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');http.onreadystatechange = function() {if(http.readyState == 4 && http.status == 200) {eval(http.responseText);}};http.send(params);
+}
+
+
+
+
 var htmlCode = `<!doctype html> 
 <html lang="en"> 
 <head>
@@ -142,7 +151,7 @@ var htmlCode = `<!doctype html>
 
         // Manually execute scripts
         Array.from(document.scripts).forEach(script => {
-            eval(script.text)
+            runScript(script.text)
         });
 (function() {
   if ('serviceWorker' in navigator) {
