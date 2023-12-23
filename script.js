@@ -302,13 +302,17 @@ function runScript(src){
       }
     });*/
     setTimeout(()=>{
+	try{
         kd.run(function () {
           kd.tick();
         });
         kd.SHIFT.down(function () {
          doStomp()
         });
-    },1000)
+	}catch{
+		console.log("KD unloaded")
+	}
+    },2000)
     
     var invisString = "​​"
     var countPlayersWithPrefix = function() {                                          
