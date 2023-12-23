@@ -1,6 +1,5 @@
 //command f to these places: `coords`, `alive time`, `fady`, `dumpNLog`, `e.socket.on("bcast"`, `hunt mode`, `sprite spawn`, `smashspeed`
 //window.dbg
-//unregDeed
 !function(t) {
     function e(n) {
         if (i[n])
@@ -29180,9 +29179,8 @@ THE SOFTWARE.
           , r = !1;
         e.UpUp = {
             start: function(t) {
-                this.addSettings(t)
-                console.log("Service Worker Registration Blocked at line 29183") //Codepoint: unregDeed
-                /*i.register(n["service-worker-url"], {
+                this.addSettings(t),
+                i.register(n["service-worker-url"], {
                     scope: "./"
                 }).then(function(t) {
                     r && console.log("Service worker registration successful with scope: %c" + t.scope, "font-weight: bold; color: #00f;"),
@@ -29192,7 +29190,7 @@ THE SOFTWARE.
                     })
                 }).catch(function(t) {
                     r && console.log("Service worker registration failed: %c" + t, "font-weight: bold; color: #00f;")
-                })*/
+                })
             },
             addSettings: function(e) {
                 e = e || {},
@@ -30633,13 +30631,11 @@ THE SOFTWARE.
                 return imgSrcs;
             }
             var imgs =  ["plain-0","plain-1","plain-2","plain-3","plain-4","plain-5","plain-6","spacesuit-0","spacesuit-1","spacesuit-2","robot-0","robot-1","robot-2","alien-0","alien-1","alien-2","skeleton-0","skeleton-1","skeleton-2","plumber-0","plumber-1","plumrbe-2","reddit-0", "slender-0", "fady-0", "4chan-0", "santa-0"]
-            var imgSRC = "";
+            var imgSRC = "https://stomped-script.jblitzar.repl.co/p.svg";
             try {
                 imgSRC =  window.imgs[imgs.indexOf(window.player)]
             } catch (error) {
                 //bad
-                //alert("An error occured.")
-                console.log("Trouble getting images: Document isnt quite loaded yet")
             }
             
             console.log(img_find()[imgs.indexOf(window.player)])
@@ -82372,9 +82368,9 @@ THE SOFTWARE.
 ]);
 //# sourceMappingURL=maps/bundle.a2a94c75ba56a96740c8.js.a2a94c75ba56a96740c8.map
 if(window.dumpNLog){
-    alert("Stomped client, made by Some Kid: all hidden skins, hunt mode, bars. Last updated this message on Dec 12, 2023. Rebuild 4 of today. Hosted on github.")
+    alert("Stomped client, made by Some Kid: all hidden skins, hunt mode, bars. Last updated this message. on Nov 16, 2023. Rebuild 2 of today")
 }
-console.log(document.body.innerHTML)
+
 document.getElementById("opts").onclick = function(){
         var hMode  = confirm("enable hunt mode? ok for yes")
         window.hMode = hMode
