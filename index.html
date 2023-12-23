@@ -4,9 +4,9 @@
 
 
 
-<link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/style.css">
+<link rel="stylesheet" href="https://stomped-script.jblitzar.repl.co/style.css">
 <script src="https://raw.githubusercontent.com/antimatter15/whammy/master/whammy.js"></script>
-<script src="https://raw.githubusercontent.com/JBlitzar/stomped/main/capture.js"></script>
+<script src="https://stomped-script.jblitzar.repl.co/capture.js"></script>
 <script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
 
 
@@ -54,7 +54,20 @@
 <div id="game-container"></div>
 
 <script src="https://cdn.ravenjs.com/3.22.3/raven.min.js" crossorigin="anonymous"></script>
-
+<script>
+  Raven.config('https://89cdf3b3a652420ab4b2d5a1e704d6ef@sentry.io/244077', {
+    // https://blog.sentry.io/2017/03/27/tips-for-reducing-javascript-error-noise.html
+    whitelistUrls: [
+      'stomped.io',
+      'www.stomped.io'
+    ],
+    dataCallback: function(data) {
+      data.extra = data.extra || {};
+      data.extra.logs = dbg.baseHandler.cBufferToText(150);
+      return data;
+    }
+  }).install();
+</script>
 
 
 
@@ -85,7 +98,7 @@
 
 
 
-<script type="text/javascript" src="https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js" defer></script>
+<script type="text/javascript" src="/dist/bundle.a2a94c75ba56a96740c8.js" defer></script>
 
 <script>
     
@@ -281,22 +294,16 @@
     },1000)
     
     var invisString = "​​"
-    var countPlayersWithPrefix = function() {  
-	    try{
+    var countPlayersWithPrefix = function() {                                          
          let counter = 0;                                                           
          for (let i = 0; i < window.dbg.players.length; i++) {                      
            if (window.dbg.players[i].name.startsWith(invisString)) {                       
              counter++;                                                             
            }                                                                        
          }                                                                          
-         return counter;  
-	    }catch{
-		    return
-	    }
+         return counter;                                                            
        }
-    </script>
-    <script defer>
-        setInterval(()=>{
+    setInterval(()=>{
         if(countPlayersWithPrefix()){
             document.getElementById("bot-counter").innerText = "Bots: "+countPlayersWithPrefix().toString();
         }
