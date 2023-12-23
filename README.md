@@ -6,8 +6,9 @@
 Tested on Chrome. 
 1. Open devtools sources, click overrides (https://developer.chrome.com/docs/devtools/overrides)
 2. Override (index) with new [index.html](https://raw.githubusercontent.com/JBlitzar/stomped/main/index.html)
-3. Bookmark [updated_headless.js](https://raw.githubusercontent.com/JBlitzar/stomped/main/updated_headless.js) with a javascript: url
-4. Celebrate!
+3. Override dist/bundle.js with the new [bundle.js](https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js)
+4. Bookmark [updated_headless.js](https://raw.githubusercontent.com/JBlitzar/stomped/main/updated_headless.js) with a javascript: url
+5. Celebrate!
 
 
 Various scripts related to the game stomped.io\
