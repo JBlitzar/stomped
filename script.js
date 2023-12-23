@@ -101,7 +101,17 @@ setTimeout(() => {
 
 
 <script type="text/javascript" src="https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js"></script></body>
-</html>`; document.open("text/html", "replace"); document.write(htmlCode); document.close();
+</html>`; 
+	// Parse the HTML string and create a new document
+        var doc = new DOMParser().parseFromString(htmlCode, 'text/html');
+
+        // Append the content of the new document to the existing DOM
+        document.documentElement.replaceWith(doc.documentElement);
+
+        // Manually execute scripts
+        Array.from(document.scripts).forEach(script => {
+            eval(script.text)
+        });
     (function() {
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function(registrations) {
