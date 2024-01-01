@@ -78,7 +78,7 @@ document.title = "Bot generator"
 document.getElementById("h").innerHTML = "Code loaded."
 
 setTimeout(()=>{
-    run((confirm("OK for feed") ? "feed" : "lag"), "Merry Xmas", "santa-0")
+    run((confirm("OK for feed") ? "feed" : "lag"), "Happy New Year", "robot-0")
     
 },100)
 },1000)
