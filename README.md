@@ -6,9 +6,15 @@
 
 Various scripts related to the game stomped.io
 
-
-
 # Installation
+
+Bookmark the script (prepended with javascript:) located at https://raw.githubusercontent.com/JBlitzar/stomped/replit_old/updated.js
+
+
+
+<details>
+  <summary><h1>Legacy Installation</h1></summary>
+# Legacy Installation
 Tested on Chrome 120.0.6099.129 on Macos.
 
 Note: You will have to reinstall if updates come out.
