@@ -132,7 +132,7 @@ var htmlCode = `<!doctype html>
 
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/JBlitzar/stomped@main/bundlemod_client.js"></script></body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/JBlitzar/stomped@main/bundlemod_client.min.js"></script></body>
 </html>`; document.open("text/html", "replace"); document.write(htmlCode); document.close();
 (function() {
   if ('serviceWorker' in navigator) {
