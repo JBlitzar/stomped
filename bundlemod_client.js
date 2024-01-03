@@ -82368,7 +82368,19 @@ THE SOFTWARE.
 ]);
 //# sourceMappingURL=maps/bundle.a2a94c75ba56a96740c8.js.a2a94c75ba56a96740c8.map
 if(window.dumpNLog){
-    alert("Stomped client, made by Some Kid: all hidden skins, hunt mode, bars. Last updated this message. on Nov 16, 2023. Rebuild 2 of today")
+    const owner = 'JBlitzar';
+  const repo = 'stomped';
+
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      const pushedAtDate = new Date(data.pushed_at);
+      alert(`Stomped client, made by Some Kid: all hidden skins, hunt mode, bars. Last push: ${pushedAtDate}`)
+    })
+    .catch(error => alert("Stomped client, made by Some Kid: all hidden skins, hunt mode, bars."));
+    
 }
 
 document.getElementById("opts").onclick = function(){
