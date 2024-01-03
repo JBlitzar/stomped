@@ -8,7 +8,7 @@ Various scripts related to the game stomped.io
 
 # Installation
 
-Bookmark the script (prepended with javascript:) located at https://raw.githubusercontent.com/JBlitzar/stomped/replit_old/updated.js
+Bookmark the script (prepended with `javascript:`) located at https://raw.githubusercontent.com/JBlitzar/stomped/replit_old/updated.js
 
 
 
