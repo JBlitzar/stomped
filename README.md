@@ -47,6 +47,7 @@ Note: You will have to reinstall if updates come out.
 
    ```
 8. Accessing the mod is as easy as opening devtools. Make sure you have overrides checked!
+</details>
 
 # Issues
 Check:
