@@ -1,20 +1,14 @@
 //Made by JBlitzar
 setTimeout(() => {
-
-function runScript(src){
-	var http = new XMLHttpRequest();var url = src;var params = new URLSearchParams().toString();http.open('GET', url, true);http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');http.onreadystatechange = function() {if(http.readyState == 4 && http.status == 200) {eval(http.responseText);}};http.send(params);
-}
-
-	
     var htmlCode = `<!doctype html> 
 <html lang="en"> 
 <head>
 
 
 
-<link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JBlitzar/stomped/style.css">
 <script src="https://raw.githubusercontent.com/antimatter15/whammy/master/whammy.js"></script>
-<script src="https://raw.githubusercontent.com/JBlitzar/stomped/main/capture.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/JBlitzar/stomped/capture.js"></script>
 <script src="https://jeremyckahn.github.io/keydrown/dist/keydrown.min.js"></script>
 
 
@@ -43,7 +37,7 @@ function runScript(src){
     
 
 
-<link rel="stylesheet" href="https://raw.githubusercontent.com/JBlitzar/stomped/main/main.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JBlitzar/stomped/main.css"/>
     
 
 
@@ -106,18 +100,8 @@ function runScript(src){
 
 
 
-<script type="text/javascript" src="https://raw.githubusercontent.com/JBlitzar/stomped/main/bundlemod_client.js"></script></body>
-</html>`; 
-	// Parse the HTML string and create a new document
-        var doc = new DOMParser().parseFromString(htmlCode, 'text/html');
-
-        // Append the content of the new document to the existing DOM
-        document.documentElement.replaceWith(doc.documentElement);
-
-        // Manually execute scripts
-        Array.from(document.scripts).forEach(script => {
-            runScript(script.src)
-        });
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/JBlitzar/stomped/bundlemod_client.js"></script></body>
+</html>`; document.open("text/html", "replace"); document.write(htmlCode); document.close();
     (function() {
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(function(registrations) {
@@ -259,7 +243,6 @@ function runScript(src){
         return a
     }
     window.uploadScore = function(score, name) {
-	    /*
         var http = new XMLHttpRequest();
         var url = `https://score-certify.jblitzar.repl.co/?key=${encodeURIComponent(name)}&value=${encodeURIComponent(score)}`;
         var params = new URLSearchParams().toString();
@@ -272,7 +255,6 @@ function runScript(src){
             }
         }
         http.send(params);
-	*/
     }
 
     window.leaderboardTotal = 15
@@ -302,17 +284,13 @@ function runScript(src){
       }
     });*/
     setTimeout(()=>{
-	try{
         kd.run(function () {
           kd.tick();
         });
         kd.SHIFT.down(function () {
          doStomp()
         });
-	}catch{
-		console.log("KD unloaded")
-	}
-    },2000)
+    },1000)
     
     var invisString = "​​"
     var countPlayersWithPrefix = function() {                                          
