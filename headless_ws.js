@@ -179,12 +179,12 @@ function join(e, t = "bot", i = "robot-0", r = "stomped.io") {
         // Add logic for handling the "joined" event in a headless context
         console.log("Bot joined the game:", t, i);
         bots ++;
-        document.title = "Server functional"
+        document.title = "✔️Server functional"
         // Simulate further game-related logic if needed
     });    
     socket.on('error', function (error) {
         console.log("Server overloaded");
-        document.title = "Server overloaded";
+        document.title = "⚠️Server overloaded";
     });
     // Handle "bcast" events
     /*socket.on("bcast", function (t) {
@@ -207,7 +207,7 @@ function join(e, t = "bot", i = "robot-0", r = "stomped.io") {
 }
 function run(mode, name, skin){
     document.title = "Running in mode: "+mode
-    setInterval(()=>{
+    window._joining_interval = setInterval(()=>{
     document.getElementById("h").innerHTML = bots.toString()
     },1000)
     if(mode == "lag"){
@@ -219,6 +219,11 @@ function run(mode, name, skin){
     }
 
 }
+window.run = run
+window.stop = function(){
+	clearInterval(window._joining_interval)
+}
+
 setTimeout(()=>{
 
     
@@ -228,7 +233,7 @@ document.title = "Bot generator"
 document.getElementById("h").innerHTML = "Code loaded."
 
 setTimeout(()=>{
-    run((confirm("OK for feed") ? "feed" : "lag"), "Merry Xmas", "santa-0")
+    run((confirm("OK for feed") ? "feed" : "lag"), "bot", "plain-0")
     
 },100)
 },1000)
