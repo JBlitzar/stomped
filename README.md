@@ -58,6 +58,9 @@ Check:
       (function() { if ('serviceWorker' in navigator) { navigator.serviceWorker.getRegistrations().then(function(registrations) { registrations.forEach(function(registration) { registration.unregister().then(function(success) { console.log('Service Worker unregistered:', success); }).catch(function(error) { console.error('Service Worker unregistration failed:', error); }); }); }); } else { console.error('Service Worker is not supported in this browser.'); } })();
 
    ```
+# Contributions
+
+Code contributions will not be accepted. If you have a feature request or would like to reprort a bug, you may open an issue
 
 
 
