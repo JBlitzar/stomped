@@ -219,8 +219,8 @@ function run(mode, name, skin){
     }
 
 }
-window.run = run
-window.stop = function(){
+window._run = run
+window._stop = function(){
 	clearInterval(window._joining_interval)
 }
 
