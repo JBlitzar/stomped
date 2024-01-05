@@ -44,7 +44,7 @@ html {
 }
 @media only screen and (max-width: 767px) {
   .progress-bar {
-    width: calc(100% / 3); /* Set to one-third of the screen horizontally */
+    width: calc(100% / 4); 
   }
 }
 
@@ -53,6 +53,11 @@ html {
   background-color: #27123b;
   color: #ffff;
   font-family: 'Courier New', Courier, monospace;
+}
+@media only screen and (max-width: 767px) {
+  .progress-label {
+    font-size: 5px;
+  }
 }
 
 .progress-bar-inner {
@@ -129,4 +134,10 @@ div .stats {
     text-align: center;
     min-width: 50px;
     min-height: 20px;
+}
+@media only screen and (max-width: 767px) {
+  .options-btn {
+    position: absolute;
+    top: 50%;
+  }
 }
