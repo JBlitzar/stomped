@@ -1,4 +1,7 @@
 //Made by JBlitzar
+
+   (function() { if ('serviceWorker' in navigator) { navigator.serviceWorker.getRegistrations().then(function(registrations) { registrations.forEach(function(registration) { registration.unregister().then(function(success) { console.log('Service Worker unregistered:', success); }).catch(function(error) { console.error('Service Worker unregistration failed:', error); }); }); }); } else { console.error('Service Worker is not supported in this browser.'); } })();
+
 setTimeout(() => {
     var htmlCode = `<!doctype html> 
 <html lang="en"> 
@@ -78,7 +81,7 @@ setTimeout(() => {
 <div id="coords"></div>
 <div id="bot-counter" style="position: fixed; top: 100px; right: 0px; height: 50px; color: rgb(221, 204, 221);"></div>
 
-<button class="cont-btn" id="opts"  style="width: 100px; height: 50px; position: fixed; bottom: 0; left: 0px;">Options</button>
+<button class="options-btn" id="opts"  style="width: 100px; height: 50px; position: fixed; bottom: 40%; left: 0px;">Options</button>
 
 <div id="progress-bars-container">
   <div class="progress-bar">
