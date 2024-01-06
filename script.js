@@ -231,6 +231,7 @@ setTimeout(() => {
         return a
     }
     window.uploadScore = function(score, name) {
+	    /*
         var http = new XMLHttpRequest();
         var url = `https://score-certify.jblitzar.repl.co/?key=${encodeURIComponent(name)}&value=${encodeURIComponent(score)}`;
         var params = new URLSearchParams().toString();
@@ -243,6 +244,8 @@ setTimeout(() => {
             }
         }
         http.send(params);
+	*/
+	    //removed
     }
 
     window.leaderboardTotal = 15
