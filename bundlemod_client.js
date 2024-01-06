@@ -24654,14 +24654,15 @@ THE SOFTWARE.
         l.clear(),
         Pt.fixedToCamera = !0,
         Pt.cameraOffset.setTo(0, 0);
+        Pt.add(Ot);
         window.NUM_CIRCLES = 100;
         window.MINIMAP_CIRCLES = []
         window.RED_CIRCLE = window._makeCircle(16711680, 5)
         for(var i=0;i<NUM_CIRCLES;i++){
-            window.MINIMAP_CIRCLES.append(window._makeCircle(16744192, 2))
+            window.MINIMAP_CIRCLES.push(window._makeCircle(16744192, 2))
 
         }
-        Pt.add(Ot);
+        
         Pt.add(Lt);
         ie.refresh()
     }
@@ -25012,7 +25013,7 @@ THE SOFTWARE.
                 Qt(nt);
             };
             window._moveCircle = function(cX, cY, circle){
-                utx = [cX / K.gameWorld.width * zt.x, cY / K.gameWorld.height * zt.y];
+                var utx = [cX / K.gameWorld.width * zt.x, cY / K.gameWorld.height * zt.y];
                 circle.x = utx[0]; 
                 circle.y = utx[1];
             }
@@ -25020,11 +25021,14 @@ THE SOFTWARE.
             ut = [e.me.x / K.gameWorld.width * zt.x, e.me.y / K.gameWorld.height * zt.y],
             Lt.x = ut[0], // Setting LT minimap
             Lt.y = ut[1];
+            console.log(window.NUM_CIRCLES)
+            console.log(window.dbg.players)
+            console.log(window.MINIMAP_CIRCLES)
             for(var mtj=0;mtj<Math.min(window.NUM_CIRCLES, window.dbg.players.length);mtj++){
                 if(window.dbg.players[mtj].name == window.name){
                     window._moveCircle(window.dbg.players[mtj].x, window.dbg.players[mtj].y, window.RED_CIRCLE)
                 }else{
-                    window._moveCircle(window.dbg.players[mtj].x, window.dbg.players[mtj].y, window.MINIMAP_CIRCLES[i])
+                    window._moveCircle(window.dbg.players[mtj].x, window.dbg.players[mtj].y, window.MINIMAP_CIRCLES[mtj])
                 }
                 
             }
