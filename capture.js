@@ -31,12 +31,28 @@ function handleKeyDown(event) {
   }
 }
 
+function downloadFile(content, fileName, contentType) {
+    const blob = new Blob([content], { type: contentType });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    a.style.display = 'none';
+
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
 function takeScreenshot() {
-  const dataURL = document.querySelector("canvas").toDataURL('image/png');
-  const link = document.createElement('a');
-  link.href = dataURL;
-  link.download = 'screenshot.png';
-  link.click();
+    const canvas = document.querySelector("canvas");
+    const dataURL = canvas.toDataURL('image/png');
+    
+    // Download the screenshot as an image file
+    downloadFile(dataURL, 'screenshot.png', 'image/png');
 }
 
 function startRecording() {
