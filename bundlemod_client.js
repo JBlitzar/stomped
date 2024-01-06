@@ -24634,6 +24634,7 @@ THE SOFTWARE.
             Ltx = e.game.add.sprite(0, 0, htx.generateTexture()),
             Ltx.anchor.setTo(.5, .5),
             htx.clear();
+            Pt.add(Ltx)
             return Ltx
         };
         window.NUM_CIRCLES = 100;
