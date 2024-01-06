@@ -120,6 +120,17 @@ div .stats {
   margin-top: 10px;
 }
 .options-btn {
+    border-radius: 4px;
+    background: #b26ee9;
+    color: white;
+    width: 45%;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 20px;
+    border: none;
+    margin: 0 2.5%;
+    padding: 5px 8px;
+    cursor: pointer;
+    letter-spacing: 1px;
     border-radius: 32px;
     background: #ff8800;
     padding: 5px;
