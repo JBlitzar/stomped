@@ -279,7 +279,8 @@ setTimeout(() => {
           kd.tick();
         });
         kd.SHIFT.down(function () {
-         doStomp()
+         doStomp();
+	doStomp();
         });
     },1000)
     
@@ -295,7 +296,8 @@ setTimeout(() => {
        }
     setInterval(()=>{
         if(countPlayersWithPrefix()){
-            document.getElementById("bot-counter").innerText = "Bots: "+countPlayersWithPrefix().toString();
+		var totalSize = window.dbg.players.reduce((sum, player) => sum + player.size, 0);
+            document.getElementById("bot-counter").innerText = "Bots: "+countPlayersWithPrefix().toString()+ " | Inflation: "+totalSize.toString();
         }
         
     }, 1000)
