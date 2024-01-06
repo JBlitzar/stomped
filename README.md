@@ -5,7 +5,7 @@
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/JBlitzar/stomped)](https://github.com/JBlitzar/stomped/commits/main)
 
 [![](https://data.jsdelivr.com/v1/package/gh/JBlitzar/stomped/badge?style=rounded)](https://www.jsdelivr.com/package/gh/JBlitzar/stomped?tab=stats)
-[![](https://data.jsdelivr.com/v1/package/npm/jquery/badge/week?style=rounded)](https://www.jsdelivr.com/package/gh/JBlitzar/stomped)
+[![](https://data.jsdelivr.com/v1/package/gh/JBlitzar/stomped/badge/week?style=rounded)](https://www.jsdelivr.com/package/gh/JBlitzar/stomped)
 
 Various scripts related to the game stomped.io
 
