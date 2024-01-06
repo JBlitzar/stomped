@@ -24637,13 +24637,7 @@ THE SOFTWARE.
             Pt.add(Ltx)
             return Ltx
         };
-        window.NUM_CIRCLES = 100;
-        window.MINIMAP_CIRCLES = []
-        window.RED_CIRCLE = window._makeCircle(16711680, 5)
-        for(var i=0;i<NUM_CIRCLES;i++){
-            window.MINIMAP_CIRCLES.append(window._makeCircle(16744192, 2))
-
-        }
+        
         var h = e.game.add.graphics(0, 0);
         h.clear(),
         h.beginFill(16776960),
@@ -24659,9 +24653,16 @@ THE SOFTWARE.
         Ot = e.game.add.sprite(0, 0, l.generateTexture()),
         l.clear(),
         Pt.fixedToCamera = !0,
-        Pt.cameraOffset.setTo(0, 0),
-        Pt.add(Ot),
-        Pt.add(Lt),
+        Pt.cameraOffset.setTo(0, 0);
+        window.NUM_CIRCLES = 100;
+        window.MINIMAP_CIRCLES = []
+        window.RED_CIRCLE = window._makeCircle(16711680, 5)
+        for(var i=0;i<NUM_CIRCLES;i++){
+            window.MINIMAP_CIRCLES.append(window._makeCircle(16744192, 2))
+
+        }
+        Pt.add(Ot);
+        Pt.add(Lt);
         ie.refresh()
     }
     function c(t, e, i) {
