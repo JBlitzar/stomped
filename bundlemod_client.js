@@ -24628,13 +24628,13 @@ THE SOFTWARE.
         e.playerToName.get(e.me).text = e.me.name; //minimap Lt
         window._makeCircle = function(circlecolor, _radius){ //16744192 = orange, 16776960 = yellow, 16711680 = red
             var htx = e.game.add.graphics(0, 0);
-            htx.clear(),
-            htx.beginFill(circlecolor),
-            htx.drawCircle(0, 0, _radius),
-            Ltx = e.game.add.sprite(0, 0, htx.generateTexture()),
-            Ltx.anchor.setTo(.5, .5),
             htx.clear();
-            Pt.add(Ltx)
+            htx.beginFill(circlecolor);
+            htx.drawCircle(0, 0, _radius);
+            var Ltx = e.game.add.sprite(0, 0, htx.generateTexture());
+            Ltx.anchor.setTo(.5, .5);
+            htx.clear();
+            Pt.add(Ltx);
             return Ltx
         };
         
