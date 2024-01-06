@@ -298,7 +298,7 @@ setTimeout(() => {
         if(countPlayersWithPrefix()){
 		var totalSize = 0;
 		window.dbg.players.foreach((player)=>{
-			totalSize += player.size
+			totalSize += Math.round(10 * player.size)
 		})
             document.getElementById("bot-counter").innerText = "Bots: "+countPlayersWithPrefix().toString()+ " | Inflation: "+totalSize.toString();
         }
