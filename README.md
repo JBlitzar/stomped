@@ -6,6 +6,8 @@
 
 [![](https://data.jsdelivr.com/v1/package/gh/JBlitzar/stomped/badge?style=rounded)](https://www.jsdelivr.com/package/gh/JBlitzar/stomped?tab=stats)
 [![](https://data.jsdelivr.com/v1/package/gh/JBlitzar/stomped/badge/week?style=rounded)](https://www.jsdelivr.com/package/gh/JBlitzar/stomped)
+
+
 [![](https://stomped.io/assets/app-icon.png)](https://stomped.io)
 
 Various scripts related to the game stomped.io
