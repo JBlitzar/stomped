@@ -155,6 +155,18 @@ function getRandomChoice(choices) {
 }
 var invisString = "​​"
 var bots = 0
+var connectedSockets = [];
+function removeSocket(socket) {
+  const index = connectedSockets.indexOf(socket);
+  if (index !== -1) {
+    connectedSockets.splice(index, 1);
+  }
+}
+function disconnectAllSockets() {
+  connectedSockets.forEach(socket => {
+    socket.disconnect(true);
+  });
+}
 function join(e, t = "bot", i = "robot-0", r = "stomped.io") {
     if(i == "random"){
         var skins = ["plain-0","plain-1","plain-2","plain-3","plain-4","plain-5","plain-6","spacesuit-0","spacesuit-1","spacesuit-2","robot-0","robot-1","robot-2","alien-0","alien-1","alien-2","skeleton-0","skeleton-1","skeleton-2","plumber-0","plumber-1","plumrbe-2","reddit-0", "slender-0", "fady-0", "4chan-0", "santa-0"]
@@ -198,6 +210,7 @@ function join(e, t = "bot", i = "robot-0", r = "stomped.io") {
     socket.on("disconnect", function () {
         console.log("disconnect");
         bots --;
+	    removeSocket(socket)
         socket.disconnect()
 
         // Handle disconnection logic, e.g., attempt reconnection
