@@ -70,11 +70,12 @@ Check:
    ```
  - https://www.jsdelivr.com/tools/purge
    ```
-    https://cdn.jsdelivr.net/gh/JBlitzar/stomped@main/script.js
+   https://cdn.jsdelivr.net/gh/JBlitzar/stomped@main/script.js
    https://cdn.jsdelivr.net/gh/JBlitzar/stomped@main/style.css
    https://cdn.jsdelivr.net/gh/JBlitzar/stomped@main/bundlemod_client.js
    https://cdn.jsdelivr.net/gh/JBlitzar/stomped@main/bundlemod_client.min.js
    https://cdn.jsdelivr.net/gh/JBlitzar/stomped@main/headless_ws.js
+   https://cdn.jsdelivr.net/gh/JBlitzar/stomped@main/capture.js
    ```
 # Contributions
 
