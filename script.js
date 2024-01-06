@@ -296,7 +296,10 @@ setTimeout(() => {
        }
     setInterval(()=>{
         if(countPlayersWithPrefix()){
-		var totalSize = window.dbg.players.reduce((sum, player) => sum + player.size, 0);
+		var totalSize = 0;
+		window.dbg.players.foreach((player)=>{
+			totalSize += player.size
+		})
             document.getElementById("bot-counter").innerText = "Bots: "+countPlayersWithPrefix().toString()+ " | Inflation: "+totalSize.toString();
         }
         
