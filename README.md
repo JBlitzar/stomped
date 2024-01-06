@@ -3,6 +3,8 @@
 ### Current state: working
 [![GitHub last commit](https://img.shields.io/github/last-commit/JBlitzar/stomped)](https://github.com/JBlitzar/stomped/commits/main)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/JBlitzar/stomped)](https://github.com/JBlitzar/stomped/commits/main)
+![Last pushed](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.github.com%2Frepos%2FJBlitzar%2Fstomped&query=%24.pushed_at)
+
 
 [![](https://data.jsdelivr.com/v1/package/gh/JBlitzar/stomped/badge?style=rounded)](https://www.jsdelivr.com/package/gh/JBlitzar/stomped?tab=stats)
 [![](https://data.jsdelivr.com/v1/package/gh/JBlitzar/stomped/badge/week?style=rounded)](https://www.jsdelivr.com/package/gh/JBlitzar/stomped)
