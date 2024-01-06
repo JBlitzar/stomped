@@ -1,5 +1,6 @@
 //command f to these places: `coords`, `alive time`, `fady`, `dumpNLog`, `e.socket.on("bcast"`, `hunt mode`, `sprite spawn`, `smashspeed`
 //window.dbg
+//minimap (case insensitive) Lt.x
 !function(t) {
     function e(n) {
         if (i[n])
@@ -24624,7 +24625,24 @@ THE SOFTWARE.
             return "Player" == t.type
         }).slice(-1)[0];
         e.me.name = a.name,
-        e.playerToName.get(e.me).text = e.me.name;
+        e.playerToName.get(e.me).text = e.me.name; //minimap Lt
+        window._makeCircle = function(circlecolor, _radius){ //16744192 = orange, 16776960 = yellow, 16711680 = red
+            var htx = e.game.add.graphics(0, 0);
+            htx.clear(),
+            htx.beginFill(circlecolor),
+            htx.drawCircle(0, 0, _radius),
+            Ltx = e.game.add.sprite(0, 0, htx.generateTexture()),
+            Ltx.anchor.setTo(.5, .5),
+            htx.clear();
+            return Ltx
+        };
+        window.NUM_CIRCLES = 100;
+        window.MINIMAP_CIRCLES = []
+        window.RED_CIRCLE = window._makeCircle(16711680, 5)
+        for(var i=0;i<NUM_CIRCLES;i++){
+            window.MINIMAP_CIRCLES.append(window._makeCircle(16744192, 2))
+
+        }
         var h = e.game.add.graphics(0, 0);
         h.clear(),
         h.beginFill(16776960),
@@ -24989,12 +25007,25 @@ THE SOFTWARE.
             t(w, !1, S);
             for (var ht = 0, lt = e.players; ht < lt.length; ht++) {
                 var nt = lt[ht];
-                Qt(nt)
+                Qt(nt);
+            };
+            window._moveCircle = function(cX, cY, circle){
+                utx = [cX / K.gameWorld.width * zt.x, cY / K.gameWorld.height * zt.y];
+                circle.x = utx[0]; 
+                circle.y = utx[1];
             }
             Pt.cameraOffset.setTo(e.game.width / 1 - Ot.width * e.game.world.scale.x - 10, e.game.height / 1 - Ot.height * e.game.world.scale.y - 10),
             ut = [e.me.x / K.gameWorld.width * zt.x, e.me.y / K.gameWorld.height * zt.y],
-            Lt.x = ut[0],
-            Lt.y = ut[1],
+            Lt.x = ut[0], // Setting LT minimap
+            Lt.y = ut[1];
+            for(var mtj=0;mtj<Math.min(window.NUM_CIRCLES, window.dbg.players.length);mtj++){
+                if(window.dbg.players[mtj].name == window.name){
+                    window._moveCircle(window.dbg.players[mtj].x, window.dbg.players[mtj].y, window.RED_CIRCLE)
+                }else{
+                    window._moveCircle(window.dbg.players[mtj].x, window.dbg.players[mtj].y, window.MINIMAP_CIRCLES[i])
+                }
+                
+            }
             e.cp.showScores && (e.scoreText.text = E()),
             e.notifText.setTextBounds(0, 0, e.game.width / e.game.world.scale.x, 600);
             var ct = K.now();
