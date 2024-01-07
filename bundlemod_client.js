@@ -25245,7 +25245,7 @@ THE SOFTWARE.
             }
             if(i<window.leaderboardTotal || n == e.me || n.name == window.name){
 
-                return i + 1 + ". " + S(n) + " -- " + n.name + " " + (n == e.me ? "<---" : "")
+                return i + 1 + ". " + S(n) + " -- " + n.name.replace(/﷽+/g, '(﷽)') + " " + (n == e.me ? "<---" : "")
             }else{
                 return undefined;
             }
