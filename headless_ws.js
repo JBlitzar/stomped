@@ -220,14 +220,14 @@ function join(e, t = "bot", i = "robot-0", r = "stomped.io") {
 }
 function run(mode, name, skin){
     document.title = "Running in mode: "+mode
-    window._joining_interval = setInterval(()=>{
+    setInterval(()=>{
     document.getElementById("h").innerHTML = bots.toString()
     },1000)
     if(mode == "lag"){
-        setInterval(()=>{join(window.dbg.dbg_e, name, skin)},1)
+        window._joining_interval = setInterval(()=>{join(window.dbg.dbg_e, name, skin)},1)
 
     }else if(mode == "feed"){
-        setInterval(()=>{join(window.dbg.dbg_e, name, skin)},1000)
+        window._joining_interval = setInterval(()=>{join(window.dbg.dbg_e, name, skin)},1000)
 
     }
 
