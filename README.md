@@ -24,7 +24,8 @@ Bookmark the script (prepended with `javascript:`) located at https://cdn.jsdeli
 
 
 <details>
-  <summary><h1>Legacy Installation</h1></summary>
+  <summary><h1>Legacy Installation (Deprecated)</h1></summary>
+  
 # Legacy Installation
 Tested on Chrome 120.0.6099.129 on Macos.
 
