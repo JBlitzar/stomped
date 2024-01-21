@@ -79,7 +79,7 @@ Check:
    ```
 # Contributions
 
-Code contributions are not being accepted at this time. If you have a feature request or would like to reprort a bug, you may open an issue
+Code contributions are not being accepted at this time. If you have a feature request or would like to report a bug, you may open an issue
 
 
 
