@@ -23,24 +23,6 @@ Various scripts related to the game stomped.io
 
 Bookmark the script (prepended with `javascript:`) located at https://cdn.jsdelivr.net/gh/JBlitzar/stomped@main/updated.js
 
-
-
-<details>
-  <summary><h1>Legacy Installation (Deprecated)</h1></summary>
-
-
-
-7. Bookmark [updated_headless.js](https://raw.githubusercontent.com/JBlitzar/stomped/main/updated_headless.js) with a javascript: url
-   
-   Run this code before clicking the bookmark for the first time:
-   ```js
-
-   (function() { if ('serviceWorker' in navigator) { navigator.serviceWorker.getRegistrations().then(function(registrations) { registrations.forEach(function(registration) { registration.unregister().then(function(success) { console.log('Service Worker unregistered:', success); }).catch(function(error) { console.error('Service Worker unregistration failed:', error); }); }); }); } else { console.error('Service Worker is not supported in this browser.'); } })();
-
-   ```
-8. Accessing the mod is as easy as opening devtools. Make sure you have overrides checked!
-</details>
-
 # Issues
 Check:
  - Have I ran this code?: 
