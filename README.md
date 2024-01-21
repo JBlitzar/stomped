@@ -1,5 +1,7 @@
 # stomped
 
+#### Legal disclaimer: https://raw.githubusercontent.com/JBlitzar/stomped/main/LICENSE
+
 ### Current state: working
 [![GitHub last commit](https://img.shields.io/github/last-commit/JBlitzar/stomped)](https://github.com/JBlitzar/stomped/commits/main)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/JBlitzar/stomped)](https://github.com/JBlitzar/stomped/commits/main)
