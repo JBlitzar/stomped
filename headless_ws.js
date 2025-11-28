@@ -26,6 +26,10 @@
   };
 })(XMLHttpRequest.prototype.open);
 
+let a = document.createElement("h1");
+a.id = "h";
+document.body.innerHTML = "";
+document.body.appendChild(a);
 (function () {
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.getRegistrations().then(function (registrations) {
