@@ -2615,54 +2615,58 @@ console.log("skbundle IS active!");
                   (0, f.now)() - lt.currLeaderboardStartTime),
                 (lt.currLeaderboardStartTime = 0)),
             "Leaderboard\n".concat(
-              t
-                .map(function (t) {
-                  // BOOKMARK: pseudo-gt function
+              (() => {
+                let players = t.map((a) => a[1]);
 
-                  var i,
-                    n = t[0],
-                    r = t[1];
+                function _spectatePlayer(_bl_a) {
+                  e.cp.currentPlayer = window.dbg.dbg_e.players.indexOf(_bl_a);
+                  window._SPECTATE(
+                    window.dbg.dbg_e.entToSprite.get(_bl_a)
+                  );
+                }
 
-                  let players = r;
-                  console.log("players: ", r);
+                if (window._SPECTATE_NAME === "__#1") {
+                  // Find player with highest score (size)
+                  let highestScorePlayer = null;
+                  let highestScore = 0;
 
-                  function _spectatePlayer(_bl_a) {
-                    e.cp.currentPlayer =
-                      window.dbg.dbg_e.players.indexOf(_bl_a);
-                    window._SPECTATE(window.dbg.dbg_e.entToSprite.get(_bl_a));
-                  }
-
-                  if (window._SPECTATE_NAME === "__#1") {
-                    // Find player with highest score (size)
-                    let highestScorePlayer = null;
-                    let highestScore = 0;
-
-                    e.players.forEach((player) => {
-                      if (player.size > highestScore) {
-                        highestScore = player.size;
-                        highestScorePlayer = player;
-                      }
-                    });
-
-                    if (highestScorePlayer) {
-                      _spectatePlayer(highestScorePlayer);
+                  e.players.forEach((player) => {
+                    if (player.size > highestScore) {
+                      highestScore = player.size;
+                      highestScorePlayer = player;
                     }
-                  } else {
-                    // Existing logic for spectating by name
-                    players.forEach((player, index) => {
-                      if (player.name == window._SPECTATE_NAME) {
-                        _spectatePlayer(player);
-                      }
-                    });
-                  }
+                  });
 
-                  return ""
-                    .concat(n + 1, ". ")
-                    .concat(((i = r), Math.round(10 * i.size)), " -- ")
-                    .concat(r.name, " ")
-                    .concat(r == e.me ? "<---" : "");
-                })
-                .join("\n")
+                  if (highestScorePlayer) {
+                    _spectatePlayer(highestScorePlayer);
+                  }
+                } else {
+                  // Existing logic for spectating by name
+                  players.forEach((player, index) => {
+                    if (player.name == window._SPECTATE_NAME) {
+                      _spectatePlayer(player);
+                    }
+                  });
+                }
+
+                return "";
+              })().concat(
+                t
+                  .map(function (t) {
+                    // BOOKMARK: pseudo-gt function
+
+                    var i,
+                      n = t[0],
+                      r = t[1];
+
+                    return ""
+                      .concat(n + 1, ". ")
+                      .concat(((i = r), Math.round(10 * i.size)), " -- ")
+                      .concat(r.name, " ")
+                      .concat(r == e.me ? "<---" : "");
+                  })
+                  .join("\n")
+              )
             )
           );
         }
