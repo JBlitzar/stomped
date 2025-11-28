@@ -179,14 +179,73 @@ window._run = run;
 window._stop = function () {
   clearInterval(window._joining_interval);
 };
+// Create settings UI
+function createSettingsUI() {
+  const settingsDiv = document.createElement("div");
+  settingsDiv.id = "bot-settings";
+  settingsDiv.style.cssText = `
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: rgba(0,0,0,0.8);
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        font-family: monospace;
+        z-index: 9999;
+        min-width: 200px;
+    `;
+
+  settingsDiv.innerHTML = `
+        <h3 style="margin-top: 0;">Bot Settings</h3>
+        <div>
+            <label>Mode:</label><br>
+            <input type="radio" name="mode" value="feed" checked> Feed (1s interval)<br>
+            <input type="radio" name="mode" value="lag"> Lag (1ms interval)
+        </div>
+        <div style="margin-top: 10px;">
+            <label>Name:</label><br>
+            <input type="text" id="bot-name" value="bot" style="width: 100%; padding: 2px;">
+        </div>
+        <div style="margin-top: 10px;">
+            <label>Skin:</label><br>
+            <select id="bot-skin" style="width: 100%; padding: 2px;">
+                <option value="random">Random</option>
+                <option value="fady-0" selected>fady-0</option>
+                <option value="robot-0">robot-0</option>
+                <option value="plain-0">plain-0</option>
+                <option value="spacesuit-0">spacesuit-0</option>
+                <option value="alien-0">alien-0</option>
+                <option value="skeleton-0">skeleton-0</option>
+            </select>
+        </div>
+        <div style="margin-top: 15px;">
+            <button id="start-bot" style="padding: 5px 10px; margin-right: 5px;">Start</button>
+            <button id="stop-bot" style="padding: 5px 10px;">Stop</button>
+        </div>
+    `;
+
+  document.body.appendChild(settingsDiv);
+
+  // Add event listeners
+  document.getElementById("start-bot").onclick = function () {
+    const mode = document.querySelector('input[name="mode"]:checked').value;
+    const name = document.getElementById("bot-name").value || "bot";
+    const skin = document.getElementById("bot-skin").value;
+    run(mode, name, skin);
+  };
+
+  document.getElementById("stop-bot").onclick = function () {
+    window._stop();
+    disconnectAllSockets();
+  };
+}
 
 setTimeout(() => {
   document.title = "Bot generator";
   document.getElementById("h").innerHTML = "Code loaded.";
 
   setTimeout(() => {
-    run(confirm("OK for feed") ? "feed" : "lag", prompt("name? "), "fady-0");
+    createSettingsUI();
   }, 100);
 }, 1000);
-
-// join(window.dbg.dbg_e, "bot", "plain-0");
