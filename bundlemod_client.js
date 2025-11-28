@@ -2,7 +2,7 @@
 //window.dbg
 //minimap (case insensitive) Lt.x
 /*! For license information please see bundle.f88e0fd111ba1960c8aa.js.LICENSE.txt */
-console.log("blitzybundle IS active!");
+console.log("skbundle IS active!");
 (() => {
   var __webpack_modules__ = {
       10: (t, e, i) => {
@@ -2624,6 +2624,7 @@ console.log("blitzybundle IS active!");
                     r = t[1];
 
                   let players = r;
+                  console.log("players: ", r);
 
                   function _spectatePlayer(_bl_a) {
                     e.cp.currentPlayer =
@@ -121448,27 +121449,6 @@ console.log("blitzybundle IS active!");
 })();
 //# sourceMappingURL=maps/bundle.f88e0fd111ba1960c8aa.js.ddc60a48d7da42dda8bbc3e52b4e63a3.map
 
-if (window.dumpNLog) {
-  const owner = "JBlitzar";
-  const repo = "stomped";
-
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}`;
-
-  fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      const pushedAtDate = new Date(data.pushed_at);
-      alert(
-        `Stomped client, made by Some Kid: all hidden skins, hunt mode, bars. Last push: ${pushedAtDate}`
-      );
-    })
-    .catch((error) =>
-      alert(
-        "Stomped client, made by Some Kid: all hidden skins, hunt mode, bars."
-      )
-    );
-}
-
 // Create minimal settings panel
 const panel = document.createElement("div");
 panel.id = "settings-panel";
@@ -121488,31 +121468,28 @@ panel.style.cssText = `
 `;
 
 panel.innerHTML = `
-    <div style="margin-bottom: 8px; font-weight: bold;">Stomped Client</div>
-    <label><input type="checkbox" id="huntMode"> Hunt Mode</label><br>
+    <div style="margin-bottom: 8px; font-weight: bold;">SK Client</div>
     <label><input type="checkbox" id="huntNumber1"> Hunt #1</label><br>
     <input type="text" id="huntName" placeholder="Name to hunt" style="width: 100%; margin: 5px 0; padding: 2px;"><br>
-    <label><input type="checkbox" id="spectateKiller"> Spectate Killer</label>
+
 `;
 
 document.body.appendChild(panel);
+// Add event listeners for hunt functionality
+document.getElementById("huntNumber1").addEventListener("change", function (e) {
+  if (e.target.checked) {
+    window._SPECTATE_NAME = "__#1";
+  } else {
+    window._SPECTATE_NAME = null;
+  }
+});
 
-// Handle settings
-document.getElementById("huntMode").onchange = function () {
-  window.hMode = this.checked;
-};
-
-document.getElementById("huntNumber1").onchange = function () {
-  window.number1 = this.checked;
-  window.name = this.checked ? null : document.getElementById("huntName").value;
-};
-
-document.getElementById("huntName").oninput = function () {
-  window.name = this.value;
-  document.getElementById("huntNumber1").checked = false;
-  window.number1 = false;
-};
-
-document.getElementById("spectateKiller").onchange = function () {
-  window.spectate = this.checked;
-};
+document.getElementById("huntName").addEventListener("input", function (e) {
+  if (e.target.value.trim() !== "") {
+    window._SPECTATE_NAME = e.target.value.trim();
+    // Uncheck hunt #1 when custom name is entered
+    document.getElementById("huntNumber1").checked = false;
+  } else {
+    window._SPECTATE_NAME = null;
+  }
+});

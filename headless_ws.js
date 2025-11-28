@@ -179,6 +179,7 @@ window._run = run;
 window._stop = function () {
   clearInterval(window._joining_interval);
 };
+
 // Create settings UI
 function createSettingsUI() {
   const settingsDiv = document.createElement("div");
