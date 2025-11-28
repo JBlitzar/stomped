@@ -2027,6 +2027,10 @@
       516: function (t, e, i) {
         "use strict";
 
+        if (!window.dbg) {
+          window.dbg = {};
+        }
+
         window.dbg.dbg_e = e;
         var n =
           (this && this.__spreadArray) ||
