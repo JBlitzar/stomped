@@ -2361,6 +2361,8 @@ console.log("blitzybundle IS active!");
           },
           lt = new a.PlayerStats(),
           ht = 100;
+
+        window._SPECTATE = at;
         function ct(t, e, i) {
           return t + i * (e - t);
         }
@@ -2615,9 +2617,44 @@ console.log("blitzybundle IS active!");
             "Leaderboard\n".concat(
               t
                 .map(function (t) {
+                  // BOOKMARK: pseudo-gt function
+
                   var i,
                     n = t[0],
                     r = t[1];
+
+                  let players = r;
+
+                  function _spectatePlayer(_bl_a) {
+                    e.cp.currentPlayer =
+                      window.dbg.dbg_e.players.indexOf(_bl_a);
+                    window._SPECTATE(window.dbg.dbg_e.entToSprite.get(_bl_a));
+                  }
+
+                  if (window._SPECTATE_NAME === "__#1") {
+                    // Find player with highest score (size)
+                    let highestScorePlayer = null;
+                    let highestScore = 0;
+
+                    e.players.forEach((player) => {
+                      if (player.size > highestScore) {
+                        highestScore = player.size;
+                        highestScorePlayer = player;
+                      }
+                    });
+
+                    if (highestScorePlayer) {
+                      _spectatePlayer(highestScorePlayer);
+                    }
+                  } else {
+                    // Existing logic for spectating by name
+                    players.forEach((player, index) => {
+                      if (player.name == window._SPECTATE_NAME) {
+                        _spectatePlayer(player);
+                      }
+                    });
+                  }
+
                   return ""
                     .concat(n + 1, ". ")
                     .concat(((i = r), Math.round(10 * i.size)), " -- ")
@@ -121432,22 +121469,50 @@ if (window.dumpNLog) {
     );
 }
 
-// document.getElementById("opts").onclick = function () {
-//   var hMode = confirm("enable hunt mode? ok for yes");
-//   window.hMode = hMode;
-//   if (hMode) {
-//     var number1 = confirm(
-//       "hunt number one or another by name? (ok for number 1)"
-//     );
-//     window.number1 = number1;
-//     if (!number1) {
-//       var name = prompt("name to hunt?");
-//       window.name = name;
-//     } else {
-//       window.name = null;
-//     }
-//   }
-//   window.spectate = !confirm(
-//     "Spectate your killer instead of showing the death screen? Cancel for yes, OK for no"
-//   );
-// };
+// Create minimal settings panel
+const panel = document.createElement("div");
+panel.id = "settings-panel";
+panel.style.cssText = `
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    z-index: 9999;
+    min-width: 150px;
+`;
+
+panel.innerHTML = `
+    <div style="margin-bottom: 8px; font-weight: bold;">Stomped Client</div>
+    <label><input type="checkbox" id="huntMode"> Hunt Mode</label><br>
+    <label><input type="checkbox" id="huntNumber1"> Hunt #1</label><br>
+    <input type="text" id="huntName" placeholder="Name to hunt" style="width: 100%; margin: 5px 0; padding: 2px;"><br>
+    <label><input type="checkbox" id="spectateKiller"> Spectate Killer</label>
+`;
+
+document.body.appendChild(panel);
+
+// Handle settings
+document.getElementById("huntMode").onchange = function () {
+  window.hMode = this.checked;
+};
+
+document.getElementById("huntNumber1").onchange = function () {
+  window.number1 = this.checked;
+  window.name = this.checked ? null : document.getElementById("huntName").value;
+};
+
+document.getElementById("huntName").oninput = function () {
+  window.name = this.value;
+  document.getElementById("huntNumber1").checked = false;
+  window.number1 = false;
+};
+
+document.getElementById("spectateKiller").onchange = function () {
+  window.spectate = this.checked;
+};
