@@ -28,7 +28,7 @@
 
 let a = document.createElement("h1");
 a.id = "h";
-document.body.innerHTML = "";
+// document.body.innerHTML = "";
 document.body.appendChild(a);
 (function () {
   if ("serviceWorker" in navigator) {
@@ -66,8 +66,8 @@ function disconnectAllSockets() {
     socket.disconnect(true);
   });
 }
-function join(e, t = "bot", i = "robot-0", r = "stomped.io") {
-  if (i == "random") {
+function join(e, t = "bot", i = "robot-0", r = "us-east-1.stomped.io") {
+  if (i === "random") {
     var skins = [
       "plain-0",
       "plain-1",
@@ -90,7 +90,7 @@ function join(e, t = "bot", i = "robot-0", r = "stomped.io") {
       "skeleton-2",
       "plumber-0",
       "plumber-1",
-      "plumrbe-2",
+      "plumber-2",
       "reddit-0",
       "slender-0",
       "fady-0",
@@ -99,7 +99,7 @@ function join(e, t = "bot", i = "robot-0", r = "stomped.io") {
     ];
     i = getRandomChoice(skins);
   }
-  if (t == "random") {
+  if (t === "random") {
     var names = [
       "stomperoni",
       "guncap slingbad",
@@ -123,48 +123,42 @@ function join(e, t = "bot", i = "robot-0", r = "stomped.io") {
     t = getRandomChoice(names);
   }
   t = invisString + t;
-  // Establish WebSocket connection
-  const socket = e.connect(r);
 
-  // Emit "join" event
+  // const socket = e.connect(r);
+  const socket = (0, e.connect)(r);
+
+  connectedSockets.push(socket);
+
   socket.emit("join", {
     name: t,
     char: i,
   });
-
-  // Handle "joined" event
   socket.on("joined", function (t, i) {
-    // Add logic for handling the "joined" event in a headless context
     console.log("Bot joined the game:", t, i);
     bots++;
-    document.title = "✔️Server functional";
-    // Simulate further game-related logic if needed
+    document.title = "Server functional";
   });
+
   socket.on("error", function (error) {
     console.log("Server overloaded");
-    document.title = "⚠️Server overloaded";
+    document.title = "Server overloaded";
   });
-  // Handle "bcast" events
-  /*socket.on("bcast", function (t) {
-        // Simulate logic for handling broadcasted game data in a headless context
-        //console.log("Received broadcast:", t);
-
-        // Simulate further processing if needed
-    });*/ //no bcast lag
 
   // Handle disconnection
   socket.on("disconnect", function () {
     console.log("disconnect");
     bots--;
     removeSocket(socket);
-    socket.disconnect();
-
-    // Handle disconnection logic, e.g., attempt reconnection
-    // x(); // Uncomment and implement x() function if needed
   });
+
+  // Auto-disconnect after 60 seconds
   setTimeout(() => {
-    socket.disconnect();
+    if (socket.connected) {
+      socket.disconnect();
+    }
   }, 60 * 1000);
+
+  return socket;
 }
 function run(mode, name, skin) {
   document.title = "Running in mode: " + mode;
@@ -191,6 +185,8 @@ setTimeout(() => {
   document.getElementById("h").innerHTML = "Code loaded.";
 
   setTimeout(() => {
-    run(confirm("OK for feed") ? "feed" : "lag", prompt("name? "), "plain-0");
+    run(confirm("OK for feed") ? "feed" : "lag", prompt("name? "), "fady-0");
   }, 100);
 }, 1000);
+
+// join(window.dbg.dbg_e, "bot", "plain-0");

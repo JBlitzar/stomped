@@ -2,6 +2,7 @@
 //window.dbg
 //minimap (case insensitive) Lt.x
 /*! For license information please see bundle.f88e0fd111ba1960c8aa.js.LICENSE.txt */
+console.log("blitzybundle IS active!");
 (() => {
   var __webpack_modules__ = {
       10: (t, e, i) => {
@@ -2331,6 +2332,7 @@
             entToSprite: e.entToSprite,
             Common: u,
             timeline: Y,
+            dbg_e: e,
           });
         var tt,
           et,
@@ -3696,6 +3698,7 @@
             });
         }
         e.connect = function (t) {
+          console.log("e.connect being called", t);
           var i = 0 == t.indexOf("http") ? t : "https://".concat(t),
             n = d.v4(),
             r = new f.MultiSocket(
@@ -121429,22 +121432,22 @@ if (window.dumpNLog) {
     );
 }
 
-document.getElementById("opts").onclick = function () {
-  var hMode = confirm("enable hunt mode? ok for yes");
-  window.hMode = hMode;
-  if (hMode) {
-    var number1 = confirm(
-      "hunt number one or another by name? (ok for number 1)"
-    );
-    window.number1 = number1;
-    if (!number1) {
-      var name = prompt("name to hunt?");
-      window.name = name;
-    } else {
-      window.name = null;
-    }
-  }
-  window.spectate = !confirm(
-    "Spectate your killer instead of showing the death screen? Cancel for yes, OK for no"
-  );
-};
+// document.getElementById("opts").onclick = function () {
+//   var hMode = confirm("enable hunt mode? ok for yes");
+//   window.hMode = hMode;
+//   if (hMode) {
+//     var number1 = confirm(
+//       "hunt number one or another by name? (ok for number 1)"
+//     );
+//     window.number1 = number1;
+//     if (!number1) {
+//       var name = prompt("name to hunt?");
+//       window.name = name;
+//     } else {
+//       window.name = null;
+//     }
+//   }
+//   window.spectate = !confirm(
+//     "Spectate your killer instead of showing the death screen? Cancel for yes, OK for no"
+//   );
+// };
